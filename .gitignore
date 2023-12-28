@@ -1,0 +1,8 @@
+*.db
+*.py[cod]
+.DS_Store
+.env
+.vscode
+.web
+__pycache__/
+prompts.csv

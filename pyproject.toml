@@ -1,0 +1,78 @@
+[tool.poetry]
+name = "PyChatAI"
+version = "0.1.0"
+description = "LLM chat interface using Reflex"
+authors = ["Arno Moonens <arno.moonens@gmail.com>"]
+readme = "README.md"
+packages = [{include = "reflex_gptp"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+reflex = "^0.3.7"
+langchain = "^0.0.334"
+litellm = "^0.11.1"
+wikipedia = "^1.4.0"
+youtube-search = "^2.1.2"
+anthropic = "^0.4.1"
+async-generator = "^1.10"
+python-dotenv = "^1.0.0"
+langchain-experimental = "^0.0.40"
+
+
+[tool.poetry.group.dev.dependencies]
+pylint = "^3.0.2"
+mypy = "^1.6.1"
+ruff = "^0.1.3"
+types-requests = "^2.31.0.10"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+# Enable Pyflakes `E` and `F` codes by default.
+select = ["E", "F", "C90", "I", "N", "D", "UP", "S", "BLE", "B", "A", "COM", "C4", "ISC", "G", "INP", "PIE", "PT", "RSE", "RET", "SIM", "TRY", "NPY", "RUF"]
+# ignore match/case ,multiple imports on 1 line, line too long and top of file import errors.
+ignore = ["E999", "E401", "E402", "E501", "D107", "UP007", "COM812", "INP001", "TRY003", "TRY300", "UP035", "RUF012", "S301"]
+
+# Allow autofix for all enabled rules (when `--fix`) is provided.
+fixable = ["A", "B", "C", "D", "E", "F", "I", "D", "UP", "B", "COM", "C4", "G", "PIE", "PT", "RSE", "RET", "SIM", "NPY", "RUF"]
+unfixable = []
+
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+]
+
+line-length = 120
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+# Assume Python 3.11.
+target-version = "py311"
+
+[tool.ruff.mccabe]
+# Unlike Flake8, default to a complexity level of 10.
+max-complexity = 10
+
+[tool.ruff.pydocstyle]
+convention = "google"
